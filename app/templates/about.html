@@ -3,9 +3,15 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1 id="about">About Us</h1>
-    <p>We are team of passonate developers building web applications with Flask.</p>
-    <p class="about">Mission: To teach programming effectively</p>
-    <p class="about">Vision: Empower people to build their ideas</p>
-    <p class="about">Values: Collaborations, innovation, and learning</p>
+<h1 id="about">About Us</h1>
+<p>We are team of passonate developers building web applications with Flask.</p>
+<p class="about">Mission: To teach programming effectively</p>
+<p class="about">Vision: Empower people to build their ideas</p>
+<p class="about">Values: Collaborations, innovation, and learning</p>
+<p>Our Teams members:</p>
+<ul class="about_list">
+    {% for each in team_members %}
+    <li> {{ each.name }} -  works as {{each.role}} </li>
+    {% endfor %}
+</ul>
 {% endblock %}

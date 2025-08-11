@@ -3,24 +3,34 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Contact Us</h1>
-    <div class="submission">
-        <p>{{ message if message }}</p>
-    </div>
-    <div class="form-container">
-        <form action="/submit" method="POST">
-            <label>Your Name:</label>
-            <input type="text" name="name" required placeholder="Your name">
+<h1>Contact Us</h1>
+<div class="submission">
+    <p>{{ message if message }}</p>
+</div>
+<div class="form-container">
+    <form action="/submit" method="POST">
+        <label>Your Name:</label>
+        <input type="text" name="name" required placeholder="Your name">
 
-            <label>Your Email:</label>
-            <input type="email" name="email" placeholder="Your email"
-       required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <label>Your Email:</label>
+        <input type="email" name="email" placeholder="Your email" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
 
-            <label>Your Message:</label>
-            <textarea name="message" required placeholder="Write something"></textarea>
+        <label>Your Message:</label>
+        <textarea name="message" required placeholder="Write something"></textarea>
 
-            <button type="submit">Send</button>
-        </form>
-    </div>
+        <button type="submit">Send</button>
+    </form>
+</div>
+<div>
+    <p>Отдел заботы о клиентах:
+        {% for each in customer_care_department %}
+            {%if each.position == 'Customer Support Specialist'%}
+            <br><br>
+                Name - {{each.name}} <br> Email - {{each.contact_info.email}} <br> phone - {{each.contact_info.phone}}
+            {% endif %}
+        {% endfor %}
+    </p>
+</div>
 
 {% endblock %}

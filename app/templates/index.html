@@ -3,7 +3,9 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Welcome to My Flask App!</h1>
-    <p>This is the home page of our website.</p>
-    <img src="{{ url_for('static', filename='img/img.png') }}" alt="flask logo">
+<h1>Welcome to My Flask App!</h1>
+<p>This is the home page of our website.</p>
+<img src="{{ url_for('static', filename='img/img.png') }}" alt="flask logo">
+<p>Сегодня: {{ current_time.strftime("%d ") + months[current_time.strftime("%B")] + ', '+ days[current_time.strftime("%A")]
+    + current_time.strftime(" %Y, %H:%M:%S")}}</p>
 {% endblock %}
